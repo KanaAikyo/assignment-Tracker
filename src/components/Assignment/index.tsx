@@ -14,7 +14,6 @@ interface HeaderProps{
 export function Assignment({asName,id,complete,onDelete,Toggled}:HeaderProps) {
  
   const handleDelete = () => {
-    // Call the provided event handler to delete the assignment
     onDelete(id)
   };
 
@@ -24,13 +23,14 @@ const ToggleComplete =()=>{
   
   return (
 
-    <div className={styles.assignment} onClick={ToggleComplete} >
-      <button className={styles.checkContainer} >
+    <div className={styles.assignment}  >
+      <button  className={complete ? "":styles.checkContainer} onClick={ToggleComplete}>
       <div></div>
+      <AiFillCheckCircle size={20} className={complete ? "":styles.checked} onClick={ToggleComplete}/>
       </button>
-      <AiFillCheckCircle size={20} className={styles.checked} />
+      
 
-      <p className={complete ? "style.textCompleted":""}>{asName}</p>
+      <p className={complete ? styles.textCompleted:""}>{asName}</p>
       {/* //how they can detect the id ???*/}
       <button className={styles.deleteButton} onClick={handleDelete} >
         <TbTrash size={20}  className={styles.hideButton}/>

@@ -2,7 +2,7 @@ import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
 interface HeaderProps{
-  newArray:any
+  newArray:(number | string| boolean)[]
   onDelete:(id:number)=>void
   Toggled:(id:number)=>void
 }
@@ -22,7 +22,7 @@ const counting = newArray.filter((e:any)=>{e.complete === true })
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>{(!counting)? counting:0} of {newArray.length}</span>
+          <span>{counting.length} of {newArray.length}</span>
         </div>
       </header>
 
