@@ -2,42 +2,63 @@ import { Header } from "./components/Header";
 import { Assignments } from "./components/Assignments";
 import {useState} from "react" 
 
+interface Assignment {
+  asName:string,
+  id: number,
+  complete: boolean 
+
+}
+
+//const AssigmentArray:Assignment[]=[]
 
 function App() {
   const[disbut, setDisbut]=useState<boolean>(true)
   const [inputVal, setInputVal] = useState<string>("");
-  const [newArray, setNewArray]= useState<any>([])
+  const [newArray, setNewArray] = useState<Assignment[]>([]);
 
   const unlockButton=(newValue:string)=>{
     setInputVal(newValue);
     setDisbut(newValue === "");
   }
 
-  const addArray = (e: string) => {
-    setNewArray((prevArray:(number | string| boolean)[]) => {
+  const addArray = (e: any) => {
+    setNewArray((prevArray: any) => {
       const newArrayCopy = [
         ...prevArray,
         { asName: e, id: newArray.length, complete: false }
       ];
+    
       return newArrayCopy;
     });
   };
  
   const onDelete = (id: number) => {
-    setNewArray((prevArray:(number | string| boolean)[]) => {
-      const updatedArray = prevArray.filter((assignment: any) => assignment.id !== id);
+    setNewArray((AssigmentArray) => {
+      const updatedArray = AssigmentArray.filter((assignment: any) => assignment.id !== id);
       return updatedArray;
     });
   };
+  
 
+  // we talk togther in class
   const Toggled = (id: number) => {
-    setNewArray((prevArray:any) => {
-      const updatedArray = [...prevArray];
-      updatedArray[id].complete = !updatedArray[id].complete; 
-      console.log(updatedArray[id].complete)
-
-      return updatedArray;
-    });
+    const updatedArray:Assignment[]=[];
+    newArray.map((e)=>{
+      if(e.id===id && e.complete===true){ 
+        e.complete=false  
+        updatedArray.push(e)
+      }else if(e.id===id && e.complete===false){
+        let newE = {...e}
+        newE.complete=true
+        console.log("test")
+        updatedArray.push(newE)
+      }else{
+        updatedArray.push(e)
+      }
+      console.log(updatedArray)
+      setNewArray(updatedArray)
+    })   
+      
   };
 
 

@@ -24,14 +24,13 @@ const ToggleComplete =()=>{
   return (
 
     <div className={styles.assignment}  >
-      <button  className={complete ? "":styles.checkContainer} onClick={ToggleComplete}>
-      <div></div>
-      <AiFillCheckCircle size={20} className={complete ? "":styles.checked} onClick={ToggleComplete}/>
-      </button>
+    <button  className={complete ? "":styles.checkContainer} onClick={ToggleComplete}>
+    <div></div>
+    <AiFillCheckCircle size={20} className={complete ? "":styles.checked} onClick={ToggleComplete}/>
+    </button>
       
 
       <p className={complete ? styles.textCompleted:""}>{asName}</p>
-      {/* //how they can detect the id ???*/}
       <button className={styles.deleteButton} onClick={handleDelete} >
         <TbTrash size={20}  className={styles.hideButton}/>
       </button>

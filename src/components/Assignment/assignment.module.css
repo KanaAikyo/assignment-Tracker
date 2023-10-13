@@ -51,4 +51,12 @@ p.textCompleted {
 .checked{
   display:none;
   color:rgb(66, 0, 128);
+  background-color: #f2f2f2;
+}
+
+button{
+  background-color: #262626;
+  padding: 0;
+  border: none;
+  outline: none;
 }
