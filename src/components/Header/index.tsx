@@ -17,12 +17,12 @@ export function Header({disbut,inputVal,unlockButton,addArray}:HeaderProps) {
     unlockButton(e.target.value);
   }
   
-  const createList = (e:any ) => {
-    e.preventDefault()
-    addArray(e.target[0].value)
-    unlockButton("")
-  
-  }
+  const createList = (e: any ) => {
+    e.preventDefault();
+    console.log(e)
+    addArray(e.currentTarget[0].value);
+    unlockButton("");
+  };
 
   return (
     <header className={styles.header}>

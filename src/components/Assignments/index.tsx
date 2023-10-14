@@ -3,7 +3,7 @@ import styles from "./assignments.module.css";
 
 interface Assignment {
   asName:string,
-  id: number,
+  id: string,
   complete: boolean 
 
 }
@@ -11,8 +11,8 @@ interface Assignment {
 
 interface HeaderProps{
   newArray:Assignment[]
-  onDelete:(id:number)=>void
-  Toggled:(id:number)=>void
+  onDelete:(id:string)=>void
+  Toggled:(id:string)=>void
 }
 
 
@@ -30,6 +30,7 @@ const counting = newArray.filter((e:any)=>{e.complete === true }).length
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
+           {/* we talk togther in class */}
           <span>{counting} of {newArray.length}</span>
         </div>
       </header>

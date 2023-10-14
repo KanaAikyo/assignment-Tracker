@@ -1,15 +1,16 @@
+//We talked about "toggle" and the "complete assigment" in class, but we could not figure out why its not working
+
 import { Header } from "./components/Header";
 import { Assignments } from "./components/Assignments";
 import {useState} from "react" 
 
 interface Assignment {
   asName:string,
-  id: number,
+  id: string,
   complete: boolean 
 
 }
 
-//const AssigmentArray:Assignment[]=[]
 
 function App() {
   const[disbut, setDisbut]=useState<boolean>(true)
@@ -25,14 +26,14 @@ function App() {
     setNewArray((prevArray: any) => {
       const newArrayCopy = [
         ...prevArray,
-        { asName: e, id: newArray.length, complete: false }
+        { asName: e, id: crypto.randomUUID(), complete: false }
       ];
     
       return newArrayCopy;
     });
   };
  
-  const onDelete = (id: number) => {
+  const onDelete = (id: string) => {
     setNewArray((AssigmentArray) => {
       const updatedArray = AssigmentArray.filter((assignment: any) => assignment.id !== id);
       return updatedArray;
@@ -41,7 +42,7 @@ function App() {
   
 
   // we talk togther in class
-  const Toggled = (id: number) => {
+  const Toggled = (id: string) => {
     const updatedArray:Assignment[]=[];
     newArray.map((e)=>{
       if(e.id===id && e.complete===true){ 
