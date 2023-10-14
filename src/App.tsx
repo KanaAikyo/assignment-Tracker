@@ -1,3 +1,4 @@
+//hello Armaan, Sorry, I could not figure out what was the cause about following....
 //We talked about "toggle" and the "complete assigment" in class, but we could not figure out why its not working
 
 import { Header } from "./components/Header";
@@ -28,7 +29,6 @@ function App() {
         ...prevArray,
         { asName: e, id: crypto.randomUUID(), complete: false }
       ];
-    
       return newArrayCopy;
     });
   };
@@ -41,18 +41,16 @@ function App() {
   };
   
 
-  // we talk togther in class
+  //we talk togther in class and could not figure out
   const Toggled = (id: string) => {
     const updatedArray:Assignment[]=[];
     newArray.map((e)=>{
       if(e.id===id && e.complete===true){ 
-        e.complete=false  
+        e.complete=false    
         updatedArray.push(e)
       }else if(e.id===id && e.complete===false){
-        let newE = {...e}
-        newE.complete=true
-        console.log("test")
-        updatedArray.push(newE)
+        e.complete=true
+        updatedArray.push(e)
       }else{
         updatedArray.push(e)
       }
@@ -60,9 +58,7 @@ function App() {
       setNewArray(updatedArray)
     })   
       
-  };
-
-
+  }
 
   return (
     <>

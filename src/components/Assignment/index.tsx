@@ -25,7 +25,7 @@ const ToggleComplete =()=>{
 
     <div className={styles.assignment}  >
     <button  className={complete ? "":styles.checkContainer} onClick={ToggleComplete}>
-    <div></div>
+    <div/>
     <AiFillCheckCircle size={20} className={complete ? "":styles.checked} onClick={ToggleComplete}/>
     </button>
       
