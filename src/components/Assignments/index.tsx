@@ -4,10 +4,10 @@ import styles from "./assignments.module.css";
 interface Assignment {
   asName:string,
   id: string,
-  complete: boolean 
+  complete: boolean,
+  duedate:Date
 
 }
-
 
 interface HeaderProps{
   newArray:Assignment[]
@@ -15,8 +15,7 @@ interface HeaderProps{
   Toggled:(id:string)=>void
 }
 
-
-export function Assignments({newArray,onDelete,Toggled}:HeaderProps) {
+export function Assignments({newArray,onDelete,Toggled,}:HeaderProps) {
 const counting = newArray.filter((e:any)=>{e.complete === true }).length
 
   
@@ -38,13 +37,14 @@ const counting = newArray.filter((e:any)=>{e.complete === true }).length
       <div className={styles.list}>
 
      
-      {newArray.map((assignment:any) => (
+        {newArray.map((assignment:any) => (
           <Assignment 
           onDelete={onDelete}
           asName={assignment.asName}
           id={assignment.id}
           complete={assignment.complete}
-          Toggled={Toggled} />
+          Toggled={Toggled} 
+          duedate={assignment.duedate}/>
         ))}
     
       </div>

@@ -14,3 +14,31 @@ body {
 button {
   cursor: pointer;
 }
+
+.parent{
+  position:relative;
+
+}
+.calendar{
+  position:absolute;
+  background-color: #0d0d0d;
+  padding:10px;
+  border-radius: 10px;
+
+}
+
+.soon{
+  background-color: red;
+  color:white;
+  border-radius: 999px;
+  padding:3px 15px;
+}
+
+.havetime{
+  background-color:#0d0d0d;
+  color:white;
+  border-radius: 999px;
+  padding:5px;
+  padding:3px 15px;
+
+}
